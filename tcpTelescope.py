@@ -1,11 +1,12 @@
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
+
 #An adaption of a TCPTelescope, piping to arduino
 
 #Thank you to Sven Steinbauer (https://github.com/Svenito) for the basis of this code
 
 #Arduino communications added by Keegan Crankshaw (http://github.com/KCrankshaw)
 
-#!/usr/bin/env python
-# -*- coding: utf-8 -*-
 import struct, time, socket, select, serial, ephem
 from math import *
 
