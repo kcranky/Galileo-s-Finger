@@ -91,12 +91,17 @@ def printit(ra_int, dec_int):
     #print("altitude= " + str(body.alt))
     altToArd(body.alt)
     azToArd(body.az)
-      
+    
+#NB: The methods makes 2 assumptions
+#1) The motor steps 0.9 degrees,
+#2) The gear ratio on the azimuth is 2:1
+#I have commented where these values come into play. adjust them as need be
+
 def altToArd(alt):
     nalt = str(alt)
     nalt = nalt[:nalt.index(':')]
     arduino.write(b'y')
-    nalt = int(nalt)/360*400
+    nalt = int(nalt)/360*400 #Conversion of 360 degrees to 400 degrees
     time.sleep(0.01)
     for i in range(0, int(nalt)):
         arduino.write(b's')
@@ -108,8 +113,8 @@ def azToArd(az):
     naz = naz[:naz.index(':')]
     arduino.write(b'x')
     time.sleep(0.01)
-    naz = int(naz)/360*400
-    for i in range(0, int(naz)):
+    naz = int(naz)/360*400 #Conversion of 360 degrees to 400 degrees
+    for i in range(0, int(naz)*2): #Gearing ratio is 2
         arduino.write(b's')
         time.sleep(0.01)
     arduino.write(b'e')
