@@ -5,7 +5,7 @@
 
 #Thank you to Sven Steinbauer (https://github.com/Svenito) for the basis of this code
 
-#Arduino communications added by Keegan Crankshaw (http://github.com/KCrankshaw)
+#Arduino communications added by Keegan Crankshaw (http://github.com/kcranky)
 
 import struct, time, socket, select, serial, ephem
 from math import *
